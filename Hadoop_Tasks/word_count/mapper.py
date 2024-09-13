@@ -6,8 +6,8 @@ import sys
 for line in sys.stdin:
     lin = line.strip()
     words = line.split()
-
     for word in words:
+        word = word.lower()
         print(f'{word}\t1')
 
     
