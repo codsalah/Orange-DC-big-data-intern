@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "Spark_Tasks/scala_word_count",
+        ""
+    ]
+}
