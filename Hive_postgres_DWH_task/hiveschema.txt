@@ -1,0 +1,90 @@
+hive> USE sales_db;
+OK
+Time taken: 0.012 seconds
+hive> CREATE TABLE time_data (
+    >     time_id INT,
+    >     sale_date STRING, -- Renamed from date Noooote
+    >     day_of_week STRING,
+    >     month STRING,
+    >     quarter INT,
+    >     year INT
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+OK
+Time taken: 0.042 seconds
+hive> CREATE TABLE supplier_data (
+    >     supplier_id INT,
+    >     supplier_name STRING,
+    >     contact_name STRING,
+    >     phone STRING,
+    >     email STRING,
+    >     address STRING,
+    >     city STRING,
+    >     state STRING,
+    >     zip_code STRING,
+    >     country STRING
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+OK
+Time taken: 0.029 seconds
+hive> CREATE TABLE store_data (
+    >     store_id INT,
+    >     store_name STRING,
+    >     location STRING,
+    >     manager_name STRING
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+OK
+Time taken: 0.035 seconds
+hive> CREATE TABLE product_data (
+    >     product_id INT,
+    >     product_name STRING,
+    >     category STRING,
+    >     sub_category STRING,
+    >     brand STRING,
+    >     price DECIMAL(10,2)
+    >     -- supplier_id removed from here
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+OK
+Time taken: 0.051 seconds
+hive> CREATE TABLE customer_data (
+    >     customer_id INT,
+    >     first_name STRING,
+    >     last_name STRING,
+    >     email STRING,
+    >     phone STRING,
+    >     address STRING,
+    >     city STRING,
+    >     state STRING,
+    >     zip_code STRING,
+    >     country STRING
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+OK
+Time taken: 0.044 seconds
+hive> CREATE TABLE sales_fact (
+    >     sale_id INT,
+    >     store_id INT,       -- FK to store_data
+    >     time_id INT,       -- FK to time_data
+    >     product_id INT,    -- FK to product_data
+    >     customer_id INT,   -- FK to customer_data
+    >     supplier_id INT,   -- FK to supplier_data
+    >     sale_amount DECIMAL(10,2),
+    >     sale_quantity INT
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+OK
+Time taken: 0.04 seconds
