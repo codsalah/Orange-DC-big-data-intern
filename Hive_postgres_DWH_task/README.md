@@ -66,12 +66,9 @@ The central table will be the `sales_fact` table, which links to dimension table
 ![alt text](imgs/image-1.png)
 ---
 ## Creating the DWH schema
-![alt text](imgs/image-2.png)
-![alt text](imgs/image-3.png)
+
 ### 1. `sales_fact` Table (Fact Table)
 This table stores transactional data and foreign keys to dimension tables.
-
-Certainly! Here’s the Hive code for each table, separated for clarity.
 
 ### 1. Create the Database
 
@@ -79,10 +76,6 @@ Certainly! Here’s the Hive code for each table, separated for clarity.
 CREATE DATABASE sales_db;
 USE sales_db;
 ```
-
-The error you're encountering is due to the use of the word **`date`** as a column name. In Hive (and many SQL dialects), **`date`** is a reserved keyword, which can lead to parsing errors. 
-
-To resolve this issue, you can either rename the column to something like **`sale_date`** or **`transaction_date`**, or you can enclose it in backticks. Here are the updated table creation statements for your **`time_data`** and other tables, using **`sale_date`** instead of **`date`**:
 
 ### Updated Hive Code
 
@@ -208,3 +201,37 @@ load data
 
 show head data of product data 
  ![alt text](imgs/image-10.png)
+
+# Hive to Postgres
+Use the PostgreSQL shell to create the same schema to pull the database into it.
+
+![Schema Diagram](imgs/image-33.png)
+
+![Table Structure](imgs/image000.png)
+
+![Column Details](imgs/image-110.png)
+
+![Data Types](imgs/image-22.png)
+
+![Relationships](imgs/image-44.png)
+
+(i had to drop some columns and come up with the `saless_db` as the final postgres schema)
+
+## Useful Queries in PostgreSQL Shell
+
+1. **Total Sales by Product**
+   ![Total Sales by Product](imgs/image-55.png)
+
+2. **Sales by Customer**
+   ![Sales by Customer](imgs/image-66.png)
+
+3. **Monthly Sales Overview**
+   ![Monthly Sales Overview](imgs/image-77.png)
+
+4. **Top 5 Products by Sales**
+   ![Top 5 Products by Sales](imgs/image-88.png)
+
+5. **Total Sales for Each Week**
+   Visualize how sales performance fluctuates week by week.
+   ![Total Sales by Week](imgs/image-99.png)
+
