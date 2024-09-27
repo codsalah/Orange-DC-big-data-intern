@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  nifi:
+    cap_add:
+      - NET_ADMIN # low port bindings
+    image: apache/nifi
+    container_name: nifi
+    environment:
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=admin
+      - NIFI_WEB_HTTP_PORT=8080 
+      - NIFI_WEB_HTTP_HOST=0.0.0.0
+      - NIFI_MONGODB_HOST=mongodb  
+      - NIFI_MONGODB_PORT=27017    
+      - NIFI_MONGODB_USERNAME=nifiadmin
+      - NIFI_MONGODB_PASSWORD=nifiadmin
+    ports:
+      - "8080:8080/tcp" # HTTP interface
+      - "8443:8443/tcp" # HTTPS interface
+      - "514:514/tcp"   # Syslog
+      - "514:514/udp"   # Syslog
+      - "2055:2055/udp" # NetFlow
+    volumes:
+      - nifi-conf:/opt/nifi/nifi-current/conf
+      - nifi_flowfile:/opt/nifi/nifi-current/flowfile_repository
+      - nifi_content:/opt/nifi/nifi-current/content_repository
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGO_INITDB_ROOT_PASSWORD=mongoadmin
+    ports:
+      - "27017:27017" # MongoDB default port
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  nifi-conf:
+  nifi_flowfile:
+  nifi_content:
+  mongo_data:
