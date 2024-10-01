@@ -20,3 +20,7 @@ for tweet_id, counts in sentiment_counts.items():
     neutral_count = counts['Neutral']
     negative_count = counts['Negative']
     print(f"{tweet_id},({positive_count}, {neutral_count}, {negative_count})")
+
+[ahmed, (800, 12, 20)]
+
+

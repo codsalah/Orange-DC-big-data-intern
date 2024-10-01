@@ -1,3 +1,5 @@
 data
 hadoop-hive.env
 entrypoint.sh
+hiveschema.txt
+Makefile
