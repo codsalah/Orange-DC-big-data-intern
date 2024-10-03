@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user             
+      POSTGRES_PASSWORD: userpassword  
+      POSTGRES_DB: project3DB         
+    volumes:
+      - pg_data:/var/lib/postgresql/data 
+    networks:
+      - my_network
+    ports:
+      - "5432:5432"                  
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    networks:
+      - my_network
+    ports:
+      - "3000:3000"                   
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin  
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  pg_data:

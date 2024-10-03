@@ -37,6 +37,9 @@ docker-compose up
 
 This will spin up all the necessary services including Hive, Postgres, Hadoop, and Presto.
 
+## Schema 
+![alt text](<imgs/DWH schema.jpeg>)
+
 ## Sample Commands
 
 ### View Available Databases
