@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  influxdb2:
+    image: influxdb:latest
+    container_name: influxdb2
+    ports:
+      - "8087:8086"  
+    volumes:
+      - influxdb2_data:/var/lib/influxdb
+    networks:
+      - monitoring
+
+  grafana2:
+    image: grafana/grafana:latest
+    container_name: grafana2
+    ports:
+      - "3001:3000"  
+    depends_on:
+      - influxdb2
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin  
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+
+volumes:
+  influxdb2_data:

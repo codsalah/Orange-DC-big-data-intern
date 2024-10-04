@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  postgres:
+  postooo:  # Changed the service name to postooo
     image: postgres:latest
-    container_name: postgres
+    container_name: postooo  # Changed container name to postooo
     restart: always
     environment:
       POSTGRES_USER: user             
@@ -16,9 +16,9 @@ services:
     ports:
       - "5432:5432"                  
 
-  grafana:
+  grafooo:  # Changed the service name to grafooo
     image: grafana/grafana
-    container_name: grafana
+    container_name: grafooo  # Changed container name to grafooo
     restart: always
     networks:
       - my_network

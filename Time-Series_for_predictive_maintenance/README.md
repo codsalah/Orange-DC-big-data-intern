@@ -36,7 +36,7 @@ Real-time sensor data is processed using Spark, and historical data is stored in
 
 ![alt text](Imgs/image-3.png)
 
-4. **Connecting pPostgres and Grafana using docker network**
+4. **Connecting Postgres and Grafana using docker network**
 ![alt text](Imgs/image-6.png)
 
 ![alt text](Imgs/image-7.png)
@@ -81,14 +81,20 @@ ORDER BY
 
 ![alt text](Imgs/image-4.png)
 
+
 ![alt text](Imgs/image-5.png)
+
 
 ![alt text](Imgs/image-10.png)
 
-It is interactive as if we added more data 
+## Interactivity 
+The data and the dashboard are interactive as if we added more data 
 that is before 
+
 ![alt text](Imgs/image-12.png)
+
 that is after adding the data and hitting refresh
+
 ![alt text](Imgs/image-13.png)
 
 
