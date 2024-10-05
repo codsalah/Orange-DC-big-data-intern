@@ -21,7 +21,6 @@ Real-time sensor data is processed using Spark, and historical data is stored in
   
 ![alt text](Imgs/img22.png)
 
-![alt text](Imgs/imagee.png)
 
 3. **Store Processed Data in PostgreSQL**
    - Create a PostgreSQL database and schema to store historical data.
@@ -37,6 +36,7 @@ Real-time sensor data is processed using Spark, and historical data is stored in
 ![alt text](Imgs/image-3.png)
 
 4. **Connecting Postgres and Grafana using docker network**
+
 ![alt text](Imgs/image-6.png)
 
 ![alt text](Imgs/image-7.png)
@@ -44,6 +44,8 @@ Real-time sensor data is processed using Spark, and historical data is stored in
 ![alt text](Imgs/image-8.png)
 
 ![alt text](Imgs/image-9.png)
+
+![alt text](Imgs/imagee.png)
 
 - **Getting Average of Values in each day (the query)**
 ```sql
@@ -73,7 +75,7 @@ ORDER BY
 
 ```
 
-4. **Visualize Data Using Grafana**
+5. **Visualize Data Using Grafana**
    - Set up Grafana and connect it to the PostgreSQL database.
    - Create dashboards to visualize the stored historical data (e.g., trends in vibration and temperature).
 
