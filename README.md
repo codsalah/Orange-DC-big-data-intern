@@ -24,6 +24,7 @@ This repository showcases various tasks and projects focusing on big data proces
 - **MongoDB**: NoSQL database for document-based data storage.
 - **Machine Learning**: Predictive maintenance using time series data.
 - **Python**: Scripting and data analysis.
+- **Java**: Used for low-level labs and implementation of foundational components.
 
 ## Projects Overview
 
